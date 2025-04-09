@@ -1,12 +1,6 @@
 
 # News Portal - README
 
-## Описание
-
-Это проект для создания базового новостного портала с использованием Django. В проекте реализованы модели для авторов, категорий, постов, комментариев и их взаимодействия, а также методы для работы с рейтингами и их обновлением.
-
-В этом файле представлена инструкция по работе с Django Shell, с помощью которого можно создавать и манипулировать объектами в базе данных.
-
 ## Как запустить проект
 
 1. Убедитесь, что у вас установлен Python и Django.
@@ -51,11 +45,9 @@ python manage.py shell
    from django.contrib.auth.models import User
    from myapp.models import Author
 
-   # Создание пользователей
    user1 = User.objects.create_user(username='author1', password='password123')
    user2 = User.objects.create_user(username='author2', password='password123')
 
-   # Создание авторов
    author1 = Author.objects.create(user=user1)
    author2 = Author.objects.create(user=user2)
    ```
@@ -82,7 +74,7 @@ python manage.py shell
        title='Первая статья',
        content='Содержание первой статьи'
    )
-   post1.categories.add(category1, category2)  # Добавляем категории
+   post1.categories.add(category1, category2)
 
    post2 = Post.objects.create(
        author=author2,
@@ -109,16 +101,16 @@ python manage.py shell
 
    Пример лайков и дизлайков:
    ```python
-   post1.like()  # Лайк посту
-   post2.dislike()  # Дизлайк посту
+   post1.like()
+   post2.dislike()
    ```
 
 6. **Обновление рейтингов авторов**
 
    Для обновления рейтинга авторов:
    ```python
-   author1.update_rating()  # Обновляем рейтинг для первого автора
-   author2.update_rating()  # Обновляем рейтинг для второго автора
+   author1.update_rating()
+   author2.update_rating()
    ```
 
 7. **Получение лучшего пользователя**
@@ -144,9 +136,3 @@ python manage.py shell
    for comment in Comment.objects.filter(post=best_post):
        print(comment.created_at, comment.user.username, comment.rating, comment.content)
    ```
-
-## Заключение
-
-Этот проект является простым новостным порталом с базовым функционалом для работы с постами, категориями, авторами и комментариями. В Django Shell вы можете взаимодействовать с моделями, добавлять данные, изменять рейтинги и получать нужную информацию.
-
-Если у вас возникнут вопросы, не стесняйтесь обращаться!
