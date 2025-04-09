@@ -5,7 +5,6 @@
 
 1. **Создание пользователей и авторов**
 
-   В Django Shell создайте пользователей и авторов. Пример команд:
    ```python
    from django.contrib.auth.models import User
    from myapp.models import Author
